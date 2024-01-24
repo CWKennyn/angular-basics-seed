@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: ` 
     <div class="app">
       <h1 (click)="handleClick($event)">{{ newMessage }}</h1>
-      <input [value]="message" (input)="handleInput($event)">
+      <input [value]="message" (input)="newMessage = messageInput.value" #messageInput>
+      <p>{{ messageInput.value }}</p>
     </div> 
   `,
   styles: [
@@ -30,10 +31,5 @@ export class AppComponent implements OnInit {
   handleClick(event: Event) {
     console.log(event);
     
-  }
-
-  handleInput(event: Event) {
-    const { value } = event.target as HTMLInputElement;
-    this.newMessage = value;
   }
 }
