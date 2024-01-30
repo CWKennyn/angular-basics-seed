@@ -6,10 +6,7 @@ import { Donut } from '../../models/donut.model';
   selector: 'donut-list',
   template: `
     <div>
-      <div>
-        {{ donut.name }}
-        {{ donut.price }}
-      </div>
+      <donut-card></donut-card>
     </div>
   `,
   styles: [
