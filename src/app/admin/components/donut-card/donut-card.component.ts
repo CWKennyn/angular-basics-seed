@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Donut } from '../../models/donut.model';
 
 @Component({
   selector: 'donut-card',
+  encapsulation: ViewEncapsulation.ShadowDom,
   template: `
         <img 
           src="/assets/img/{{ donut.icon }}.svg"
