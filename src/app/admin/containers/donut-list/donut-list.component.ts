@@ -6,11 +6,18 @@ import { Donut } from '../../models/donut.model';
   selector: 'donut-list',
   template: `
     <div>
-      <ng-container *ngIf="donuts.length">
+      <ng-container 
+        *ngIf="donuts.length; then cards; else nothing"
+      ></ng-container>
+
+      <ng-template #cards>
         <donut-card [donut]="donuts[0]"></donut-card>
         <donut-card [donut]="donuts[1]"></donut-card>
         <donut-card [donut]="donuts[2]"></donut-card>
-      </ng-container>
+      </ng-template>
+      <ng-template #nothing>
+        <p>No Donuts here...</p>
+      </ng-template>
     </div>
   `,
   styles: [],
