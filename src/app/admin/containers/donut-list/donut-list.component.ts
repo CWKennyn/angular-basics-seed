@@ -12,20 +12,10 @@ import { Donut } from '../../models/donut.model';
           [donut]="donut">
         </donut-card>
 
-        <div
-          *ngFor="
-            let donut of donuts; 
-            trackBy: trackById; 
-            index as i; 
-            odd as o; 
-            even as e
-          "
-          [style.color]="o ? 'red' : 'blue'"
-        >
-          {{ i + 1 }}
-          {{ o }}
-          {{ e }}
-        </div>
+        <ng-template ngFor [ngForOf]="donuts" let-donut let-i="index">
+        <donut-card [donut]="donut"> </donut-card>
+        {{ i }}
+        </ng-template>
       </ng-container>
 
       <ng-template #nothing>
