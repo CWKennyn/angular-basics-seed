@@ -61,7 +61,9 @@ import { NgForm } from '@angular/forms';
         <textarea name="description" class="input input--textarea" required ngModel></textarea>
       </label>
 
-      <button type="submit" class="btn btn--green">Create</button>
+      <button type="submit" class="btn btn--green" [disabled]="form.invalid">
+        Create
+      </button>
 
       <pre>{{ form.value | json }}</pre>
     </form>
@@ -106,6 +108,8 @@ export class DonutFormComponent {
   constructor() {}
 
   handleSubmit(form: NgForm) {
-    console.log(form.value);
+    if(form.valid) {
+      console.log(form.value);
+    }
   }
 }
