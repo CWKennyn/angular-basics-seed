@@ -14,7 +14,7 @@ import { NgForm } from '@angular/forms';
           required 
           minlength="5"
           ngModel 
-          [ngModelOptions]="{ updateOn: 'blur' }"]
+          [ngModelOptions]="{ updateOn: 'blur' }"
           #name="ngModel" 
         />
         <ng-container *ngIf="name.invalid && name.touched">
@@ -98,10 +98,9 @@ import { NgForm } from '@angular/forms';
         </ng-container>
       </label>
 
-      <button type="submit" class="btn btn--green">
-        Create
-      </button>
-
+      <button type="submit" class="btn btn--green">Create</button>
+      <button type="button" class="btn btn--grey" (click)="form.resetForm()">Reset Form</button>
+      {{ form.submitted }}
       <pre>{{ form.value | json }}</pre>
     </form>
   `,
